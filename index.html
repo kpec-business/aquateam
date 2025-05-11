@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqua Team | Profesjonalne Usługi Wodno-Kanalizacyjne | Oleśnica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #0f4c75; /* Navy blue from logo */
+    --primary-dark: #084164;
+    --primary-light: #b3d9ff;
+    --secondary-color: #ffffff; /* White */
+    --accent-color: #ff8c00; /* Orange from logo */
+    --light-color: #ffffff;
+    --dark-color: #212121;
+    --text-color: #424242;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e0e0e0;
+    --gray: #bdbdbd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    touch-action: manipulation;
+}
+
+h1, h2, h3, h4, .btn, .counter-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Navigation */
+nav {
+    background-color: rgba(255, 255, 255, 0.98);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 15px var(--shadow-color);
+}
+
+nav.scrolled {
+    padding: 0.7rem 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    color: var(--primary-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.logo span.accent {
+    color: var(--accent-color);
+}
+
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    position: relative;
+    font-size: 1rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 80px;
+    position: relative;
+    background: linear-gradient(135deg, rgba(15, 76, 117, 0.9) 0%, rgba(8, 65, 100, 0.95) 100%), 
+                url('/api/placeholder/1920/1080') center/cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding: 4rem 0;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    animation: fadeInLeft 1s ease forwards;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: white;
+    animation: fadeInLeft 1s ease 0.2s forwards;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    animation: fadeInLeft 1s ease 0.4s forwards;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 90%;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    animation: fadeInLeft 1s ease 0.6s forwards;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 45%;
+    max-width: 650px;
+    animation: fadeInRight 1s ease 0.4s forwards;
+    display: none; /* Initially hidden for small screens */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.btn-primary:hover {
+    background: #e67e00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Features Section */
+.features {
+    padding: 6rem 0;
+    background-color: var(--light-gray);
+    position: relative;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    background: var(--primary-light);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.feature-card:hover .feature-icon {
+    transform: rotateY(360deg);
+}
+
+.feature-title {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.feature-text {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+/* Sections */
+.section {
+    padding: 6rem 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.section-bg-light {
+    background-color: var(--light-gray);
+}
+
+.section-bg-white {
+    background-color: white;
+}
+
+/* Section titles */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-subtitle {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    display: block;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 4px;
+    background-color: var(--accent-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 2.5rem auto 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* About Section */
+.about {
+    background: white;
+    position: relative;
+    padding: 7rem 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.about-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.about-text {
+    margin-bottom: 2rem;
+}
+
+.about-text p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.about-list {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.about-list li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.about-list i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    font-size: 1.2rem;
+    min-width: 20px;
+    margin-top: 5px;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.about-image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15,76,117,0.3), rgba(255,140,0,0.3));
+    z-index: 1;
+}
+
+.about-image img {
+    width: 100%;
+    display: block;
+    transition: transform 1s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Services */
+.services {
+    background: var(--light-gray);
+    padding: 7rem 0;
+    position: relative;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    background: var(--primary-light);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.service-card:hover .service-icon {
+    transform: rotateY(360deg);
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    position: relative;
+}
+
+.service-card p {
+    color: var(--text-color);
+    font-size: 0.95rem;
+    flex-grow: 1;
+}
+
+.service-card .btn {
+    margin-top: 1.5rem;
+    align-self: flex-start;
+}
+
+/* Projects Section */
+.projects {
+    padding: 7rem 0;
+    background: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    height: 100%;
+    aspect-ratio: 3/4;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-title {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-category {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+}
+
+/* Testimonials */
+.testimonials {
+    background: var(--light-gray);
+    padding: 7rem 0;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.testimonial-rating {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    flex-grow: 1;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--medium-gray);
+    padding-top: 1.5rem;
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.author-info h4 {
+    margin-bottom: 0.2rem;
+    color: var(--primary-color);
+}
+
+.author-info p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* FAQ Section */
+.faq {
+    padding: 7rem 0;
+    background: white;
+}
+
+.faq-container {
+    max-width: 900px;
+    margin: 3rem auto 0;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.faq-question {
+    padding: 1.5rem;
+    background-color: white;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.faq-question span {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.faq-question.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+    color: white;
+}
+
+.faq-answer {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.faq-answer.show {
+    padding: 1.5rem;
+    max-height: 500px;
+}
+
+.faq-answer p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 7rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/api/placeholder/1920/1080');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-white {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.btn-white:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Contact */
+.contact {
+    background: var(--light-gray);
+    padding: 7rem 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    background: var(--primary-light);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.contact-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.contact-card p, .contact-card a {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: var(--accent-color);
+}
+
+.map-container {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 400px;
+    border: 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.footer-logo span {
+    color: white;
+}
+
+.footer-logo span.accent {
+    color: var(--accent-color);
+}
+
+.footer-about p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    max-width: 400px;
+    line-height: 1.8;
+}
+
+.footer-section h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.footer-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent-color);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.footer-links a i {
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.footer-contact p {
+    display: flex;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.footer-contact i {
+    margin-right: 1rem;
+    color: var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Scroll Top Button */
+.scroll-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 15px rgba(255, 140, 0, 0.4);
+    z-index: 99;
+}
+
+.scroll-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-top:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background-color: white;
+        padding: 6rem 2rem 2rem;
+        flex-direction: column;
+        text-align: left;
+        transition: all 0.5s ease;
+        z-index: 999;
+        box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 1rem 0.8rem;
+        border-bottom: 1px solid var(--medium-gray);
+        width: 100%;
+        display: block;
+    }
+    
+    .hamburger.active {
+        color: var(--accent-color);
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-description {
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .features-grid,
+    .services-grid,
+    .projects-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-image {
+        display: block;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .testimonial-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-content">
+            <a href="#" class="logo">Aqua<span class="accent"> Team</span></a>
+            <button class="hamburger" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#home">Start</a>
+                <a href="#about">O nas</a>
+                <a href="#services">Usługi</a>
+                <a href="#projects">Realizacje</a>
+                <a href="#testimonials">Opinie</a>
+                <a href="#contact">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Profesjonalne Usługi Wodno-Kanalizacyjne</span>
+                <h1 class="hero-title">Nowoczesne rozwiązania dla Twojego domu</h1>
+                <p class="hero-description">Specjalizujemy się w kompleksowych usługach wodno-kanalizacyjnych na terenie Oleśnicy i okolic. Zapewniamy najwyższą jakość wykonania oraz pełną gwarancję na wszystkie prace.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Kontakt</a>
+                    <a href="#services" class="btn btn-secondary">Nasze usługi</a>
+                </div>
+            </div>
+            <img src="/api/placeholder/600/500" alt="Usługi wodno-kanalizacyjne" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Dlaczego My?</span>
+                <h2 class="section-title">Nasze Atuty</h2>
+                <p class="section-description">Aqua Team oferuje kompleksowe usługi wodno-kanalizacyjne, stawiając na jakość, profesjonalizm i zadowolenie klienta.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">Profesjonalizm</h3>
+                    <p class="feature-text">Doświadczony zespół specjalistów z wieloletnim doświadczeniem w branży wodno-kanalizacyjnej.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Terminowość</h3>
+                    <p class="feature-text">Gwarantujemy dotrzymanie ustalonych terminów realizacji wszystkich zleceń.</p>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Gwarancja</h3>
+                    <p class="feature-text">Udzielamy pełnej gwarancji na wszystkie wykonane prace oraz zastosowane materiały.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" data-aos="fade-right">
+                    <h3>Poznaj naszą firmę</h3>
+                    <h2>Specjaliści w dziedzinie instalacji wodno-kanalizacyjnych</h2>
+                    <div class="about-text">
+                        <p>Aqua Team to firma z wieloletnim doświadczeniem, która specjalizuje się w kompleksowych usługach wodno-kanalizacyjnych. Naszym głównym celem jest dostarczanie najwyższej jakości rozwiązań, które są zarówno funkcjonalne jak i trwałe.</p>
+                        <p>Działamy na terenie Oleśnicy i okolic, realizując projekty dla klientów indywidualnych oraz firm. Nasz zespół to wykwalifikowani specjaliści, którzy regulnie podnoszą swoje kwalifikacje, aby móc oferować najlepsze rozwiązania zgodne z aktualnymi standardami.</p>
+                    </div>
+                    <ul class="about-list">
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Bezpłatna wycena i konsultacja techniczna</span>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Gwarancja na wszystkie wykonane prace</span>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Terminowa realizacja i przejrzyste rozliczenia</span>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Współpraca z renomowanymi producentami</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="/api/placeholder/600/800" alt="Zespół Aqua Team">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Co Oferujemy</span>
+                <h2 class="section-title">Nasze Usługi</h2>
+                <p class="section-description">Oferujemy kompleksowe rozwiązania wodno-kanalizacyjne, dopasowane do indywidualnych potrzeb naszych klientów.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Instalacje Wodno-Kanalizacyjne</h3>
+                    <p>Kompleksowe wykonanie instalacji wodociągowych i kanalizacyjnych w budynkach mieszkalnych i użytkowych.</p>
+                    <a href="#contact" class="btn btn-primary">Szczegóły</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Naprawy i Awarie</h3>
+                    <p>Szybki serwis i usuwanie awarii instalacji wodno-kanalizacyjnych. Dostępni 24/7 w pilnych przypadkach.</p>
+                    <a href="#contact" class="btn btn-primary">Szczegóły</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Przyłącza Wodociągowe</h3>
+                    <p>Wykonanie przyłączy wodociągowych i kanalizacyjnych do budynków z zachowaniem wszystkich norm.</p>
+                    <a href="#contact" class="btn btn-primary">Szczegóły</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Modernizacje</h3>
+                    <p>Modernizacja istniejących instalacji, wymiana starych rur i armatury na nowoczesne rozwiązania.</p>
+                    <a href="#contact" class="btn btn-primary">Szczegóły</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Wykrywanie Nieszczelności</h3>
+                    <p>Profesjonalne wykrywanie wycieków i nieszczelności w instalacjach za pomocą nowoczesnego sprzętu.</p>
+                    <a href="#contact" class="btn btn-primary">Szczegóły</a>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <i class="fas fa-bath"></i>
+                    </div>
+                    <h3>Montaż Sanitariatów</h3>
+                    <p>Montaż i podłączanie urządzeń sanitarnych - wannen, pryszniców, umywalek, muszli WC i bidetów.</p>
+                    <a href="#contact" class="btn btn-primary">Szczegóły</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Nasze Prace</span>
+                <h2 class="section-title">Wybrane Realizacje</h2>
+                <p class="section-description">Zapoznaj się z wybranymi projektami, które zrealizowaliśmy dla naszych klientów.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/api/placeholder/400/600" alt="Instalacja wodociągowa" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Kompleksowa instalacja wodociągowa</h3>
+                        <p class="project-category">Dom Jednorodzinny</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/api/placeholder/400/600" alt="Przyłącze kanalizacyjne" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Przyłącze kanalizacyjne</h3>
+                        <p class="project-category">Budynek Mieszkalny</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/api/placeholder/400/600" alt="Modernizacja łazienki" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Modernizacja łazienki</h3>
+                        <p class="project-category">Mieszkanie</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="/api/placeholder/400/600" alt="Instalacja kanalizacyjna" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Instalacja kanalizacyjna</h3>
+                        <p class="project-category">Budynek Usługowy</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="/api/placeholder/400/600" alt="Naprawa awarii" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Usuwanie awarii hydraulicznej</h3>
+                        <p class="project-category">Interwencja</p>
+                    </div>
+                </div>
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <img src="/api/placeholder/400/600" alt="Montaż sanitariatów" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Montaż kompletnych sanitariatów</h3>
+                        <p class="project-category">Nowa Łazienka</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Opinie Klientów</span>
+                <h2 class="section-title">Co Mówią O Nas</h2>
+                <p class="section-description">Poznaj opinie klientów, którzy skorzystali z naszych usług.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Profesjonalna i szybka realizacja kompleksowej instalacji wodno-kanalizacyjnej w naszym domu. Pełne zaangażowanie i wysokie kwalifikacje zespołu. Polecam Aqua Team wszystkim."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>Jan Kowalski</h4>
+                            <p>Oleśnica</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Szybka reakcja na awarię w niedzielę wieczorem. Ekipa Aqua Team była na miejscu w godzinę i sprawnie usunęła problem. Ceny bardzo uczciwe, usługa na najwyższym poziomie."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Anna Wiśniewska</h4>
+                            <p>Bierutów</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">
+                        "Solidne wykonanie modernizacji łazienki. Wszystko zrobione terminowo, czysto i precyzyjnie. Dodatkowe prace nie generowały dodatkowych kosztów. Zdecydowanie polecam!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Piotr Nowak</h4>
+                            <p>Syców</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Pytania i Odpowiedzi</span>
+                <h2 class="section-title">Najczęściej Zadawane Pytania</h2>
+                <p class="section-description">Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące naszych usług.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <span>Czy oferujecie usługi interwencyjne w weekendy?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak, oferujemy usługi interwencyjne 24/7, również w weekendy i święta. W przypadku awarii hydraulicznej możesz liczyć na naszą szybką reakcję.</p>
+                        <p>Staramy się dotrzeć na miejsce w ciągu 1-2 godzin od zgłoszenia, niezależnie od pory dnia czy nocy.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="faq-question">
+                        <span>Jaką gwarancję udzielacie na wykonane prace?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Udzielamy 2-letniej gwarancji na wszystkie wykonane przez nas instalacje oraz 1-rocznej gwarancji na usługi konserwacyjne i naprawy.</p>
+                        <p>Na zastosowane materiały i urządzenia obowiązuje gwarancja producenta, którą możemy przedłużyć w zależności od rodzaju zlecenia.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <span>Czy wycena jest płatna?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nie, wycena jest całkowicie bezpłatna. Nasz specjalista przyjedzie na miejsce, omówi Państwa potrzeby, dokona pomiarów i przedstawi szczegółową wycenę bez żadnych kosztów.</p>
+                        <p>Wycena zawiera wszystkie koszty materiałów, pracy oraz transport. Nie ma żadnych ukrytych opłat.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <span>Na jakim terenie działacie?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Działamy głównie na terenie Oleśnicy i okolic, w tym: Dobroszyce, Bierutów, Syców, Wołów oraz inne miejscowości w promieniu do 40 km od Oleśnicy.</p>
+                        <p>W przypadku większych projektów jesteśmy również gotowi rozszerzyć zasięg działania. Prosimy o kontakt w celu omówienia szczegółów.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Potrzebujesz fachowca?</h2>
+                <p class="cta-text">Skontaktuj się z nami już dziś, aby umówić się na bezpłatną wycenę. Nasi specjaliści są gotowi rozwiązać każdy Twój problem z instalacją wodno-kanalizacyjną.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-white">Skontaktuj się</a>
+                    <a href="#services" class="btn btn-outline">Nasze usługi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Zostańmy w kontakcie</span>
+                <h2 class="section-title">Skontaktuj się z nami</h2>
+                <p class="section-description">Jesteśmy dostępni, aby odpowiedzieć na wszystkie Twoje pytania i zapewnić profesjonalną pomoc.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Adres</h3>
+                        <p>ul. Wrocławska 23j lok. 33</p>
+                        <p>56-400 Oleśnica</p>
+                        <p>woj. dolnośląskie</p>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Telefon</h3>
+                        <a href="tel:+48661494944">+48 661 494 944</a>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <a href="mailto:aqua-team@o2.pl">aqua-team@o2.pl</a>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Godziny pracy</h3>
+                        <p>Poniedziałek - Piątek: 7:00 - 20:00</p>
+                        <p>Sobota: 9:00 - 17:00</p>
+                        <p>Niedziela: Na wezwanie</p>
+                    </div>
+                </div>
+                <div class="map-container" data-aos="fade-up">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.156918902917!2d17.38109977636355!3d51.20905557164173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc8d80bd66259%3A0xaec6bc3e1cdff0e!2sWroc%C5%82awska%2023j%2C%2056-400%20Ole%C5%9Bnica!5e0!3m2!1spl!2spl!4v1682342000825!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Aqua<span class="accent"> Team</span></a>
+                    <p>Specjalizujemy się w kompleksowych usługach wodno-kanalizacyjnych. Działamy na terenie Oleśnicy i okolic, zapewniając najwyższą jakość wykonania i pełną satysfakcję klientów.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Usługi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Instalacje wodno-kanalizacyjne</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Naprawy i awarie</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Przyłącza wodociągowe</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Modernizacje</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Wykrywanie nieszczelności</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Montaż sanitariatów</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Szybki dostęp</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Start</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> O nas</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Realizacje</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Opinie</a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ul. Wrocławska 23j lok. 33, 56-400 Oleśnica</p>
+                    <p><i class="fas fa-phone-alt"></i> +48 661 494 944</p>
+                    <p><i class="fas fa-envelope"></i> aqua-team@o2.pl</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="current-year"></span> Aqua Team | Wszystkie prawa zastrzeżone
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+            
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+        duration: 800,
+        easing: 'ease',
+        once: true,
+        offset: 100
+    });
+
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Navigation scroll effect
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('nav');
+        const scrollTop = window.scrollY;
+        
+        if (scrollTop > 100) {
+            nav.classList.add('scrolled');
+            document.querySelector('.scroll-top').classList.add('active');
+        } else {
+            nav.classList.remove('scrolled');
+            document.querySelector('.scroll-top').classList.remove('active');
+        }
+    });
+    
+    // Mobile Navigation Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('nav-open');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('nav-open');
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Scroll to top button
+    document.querySelector('.scroll-top').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // FAQ Accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            // Close all other answers
+            faqQuestions.forEach(q => {
+                if (q !== question) {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('show');
+                }
+            });
+            
+            // Toggle current answer
+            this.classList.toggle('active');
+            const answer = this.nextElementSibling;
+            answer.classList.toggle('show');
+        });
+    });
+    
+    // Helper function to check if element is in viewport
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+            rect.bottom >= 0
+        );
+    }
+
+    // Add scroll event for animations
+    window.addEventListener('scroll', function() {
+        // Add more custom scroll-based animations here if needed
+    });
+
+    // Add smooth hover effect for service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transition = 'all 0.3s ease';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transition = 'all 0.5s ease';
+        });
+    });
+
+    // Add parallax effect to CTA section
+    const ctaSection = document.querySelector('.cta-section');
+    if (ctaSection) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const offset = scrollPosition * 0.4;
+            ctaSection.style.backgroundPosition = `center ${offset}px`;
+        });
+    }
+});
+    </script>
+</body>
+</html>
