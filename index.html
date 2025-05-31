@@ -11,11 +11,11 @@
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #0f4c75; /* Navy blue from logo */
+    --primary-color: #0f4c75;
     --primary-dark: #084164;
     --primary-light: #b3d9ff;
-    --secondary-color: #ffffff; /* White */
-    --accent-color: #ff8c00; /* Orange from logo */
+    --secondary-color: #ffffff;
+    --accent-color: #ff8c00;
     --light-color: #ffffff;
     --dark-color: #212121;
     --text-color: #424242;
@@ -41,7 +41,7 @@ html, body {
 body {
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-color);
+    background-color: var(--dark-color);
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
     touch-action: manipulation;
@@ -64,94 +64,95 @@ img {
     padding: 0 1.5rem;
 }
 
-/* Navigation */
+/* Navigation - Dark Theme */
 nav {
-    background-color: rgba(255, 255, 255, 0.98);
-    padding: 1rem;
+    background-color: rgba(33, 33, 33, 0.98);
+    padding: 1rem 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 15px var(--shadow-color);
+    backdrop-filter: blur(10px);
 }
 
 nav.scrolled {
-    padding: 0.7rem 1rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.7rem 0;
+    background-color: rgba(33, 33, 33, 0.95);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .nav-content {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-decoration: none;
     font-weight: 700;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     transition: all 0.3s ease;
-    color: var(--primary-color);
+    color: white;
 }
 
 .logo span {
-    color: var(--primary-color);
+    color: white;
 }
 
 .logo span.accent {
     color: var(--accent-color);
 }
 
-.logo img {
-    height: 45px;
-    width: auto;
-}
-
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
     transition: all 0.3s;
     font-weight: 500;
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0;
     position: relative;
     font-size: 1rem;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-color);
-    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--accent-color);
 }
 
-.nav-links a:hover::after {
-    width: 100%;
+.order-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    border: 2px solid var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.order-btn:hover {
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .hamburger {
     display: none;
     background: none;
     border: none;
-    color: var(--primary-color);
+    color: white;
     font-size: 1.5rem;
     cursor: pointer;
     z-index: 1001;
@@ -161,11 +162,10 @@ nav.scrolled {
     padding: 5px;
 }
 
-/* Hero Section */
+/* Hero Section - Full Background with Dark Overlay */
 .hero {
-    padding-top: 80px;
     position: relative;
-    background: linear-gradient(135deg, rgba(15, 76, 117, 0.9) 0%, rgba(8, 65, 100, 0.95) 100%), 
+    background: linear-gradient(135deg, rgba(15, 76, 117, 0.85) 0%, rgba(8, 65, 100, 0.9) 100%), 
                 url('/api/placeholder/1920/1080') center/cover no-repeat;
     min-height: 100vh;
     display: flex;
@@ -174,61 +174,118 @@ nav.scrolled {
     color: white;
 }
 
-.hero-content {
-    max-width: 650px;
-    padding: 4rem 0;
-    position: relative;
-    z-index: 2;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
-.hero-subtitle {
-    font-size: 1.2rem;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 8rem 0 4rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 140, 0, 0.2);
     color: var(--accent-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-size: 1rem;
     font-weight: 500;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    animation: fadeInLeft 1s ease forwards;
+    margin-bottom: 2rem;
+    border: 1px solid var(--accent-color);
+    animation: fadeInUp 1s ease forwards;
 }
 
 .hero-title {
-    font-size: 3.2rem;
+    font-size: 4rem;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.1;
     font-weight: 700;
     color: white;
-    animation: fadeInLeft 1s ease 0.2s forwards;
+    animation: fadeInUp 1s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.hero-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    animation: fadeInUp 1s ease 0.4s forwards;
+    opacity: 0;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    animation: fadeInLeft 1s ease 0.4s forwards;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 90%;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease 0.6s forwards;
+    opacity: 0;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
 }
 
 .hero-cta {
     display: flex;
-    gap: 1rem;
-    animation: fadeInLeft 1s ease 0.6s forwards;
+    gap: 1.5rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.8s forwards;
+    opacity: 0;
     flex-wrap: wrap;
 }
 
-.hero-image {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 45%;
-    max-width: 650px;
-    animation: fadeInRight 1s ease 0.4s forwards;
-    display: none; /* Initially hidden for small screens */
+/* Featured Service Card in Hero */
+.service-feature {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 3rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 1s ease 1s forwards;
+    opacity: 0;
+}
+
+.service-feature h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-feature p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.service-feature .price {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 /* Buttons */
 .btn {
     display: inline-block;
-    padding: 0.9rem 2rem;
-    border-radius: 50px;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
@@ -244,13 +301,13 @@ nav.scrolled {
 .btn-primary {
     background: var(--accent-color);
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    border: 2px solid var(--accent-color);
 }
 
 .btn-primary:hover {
-    background: #e67e00;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.4);
+    background: transparent;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
 }
 
 .btn-secondary {
@@ -260,31 +317,64 @@ nav.scrolled {
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    background: white;
+    color: var(--primary-color);
 }
 
-/* Features Section */
-.features {
-    padding: 6rem 0;
-    background-color: var(--light-gray);
+/* Content Sections - Dark Theme */
+.content-section {
+    background: var(--dark-color);
+    color: white;
+    padding: 8rem 0;
     position: relative;
 }
 
+.content-section.light {
+    background: #1a1a1a;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-subtitle {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-description {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* Features Grid */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
 
 .feature-card {
-    background: white;
+    background: #2a2a2a;
     border-radius: 10px;
     padding: 2.5rem 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -292,165 +382,75 @@ nav.scrolled {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    border: 1px solid #404040;
 }
 
 .feature-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--primary-color);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.5s ease;
-}
-
-.feature-card:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
 }
 
 .feature-icon {
     font-size: 2.5rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 1.5rem;
     transition: all 0.3s ease;
-    background: var(--primary-light);
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.feature-card:hover .feature-icon {
-    transform: rotateY(360deg);
 }
 
 .feature-title {
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: white;
     font-size: 1.3rem;
 }
 
 .feature-text {
-    color: var(--text-color);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.95rem;
     flex-grow: 1;
 }
 
-/* Sections */
-.section {
-    padding: 6rem 0;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-}
-
-.section-bg-light {
-    background-color: var(--light-gray);
-}
-
-.section-bg-white {
-    background-color: white;
-}
-
-/* Section titles */
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-subtitle {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    display: block;
-    font-weight: 500;
-    letter-spacing: 1px;
-}
-
-.section-title {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 1.2rem;
-    position: relative;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.section-title::after {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 4px;
-    background-color: var(--accent-color);
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.section-description {
-    max-width: 700px;
-    margin: 2.5rem auto 0;
-    font-size: 1.1rem;
-    color: var(--text-color);
-}
-
 /* About Section */
-.about {
-    background: white;
-    position: relative;
-    padding: 7rem 0;
-}
-
 .about-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
     align-items: center;
+    margin-top: 3rem;
 }
 
-.about-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+.about-content {
+    text-align: center;
 }
 
 .about-content h2 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    color: white;
     line-height: 1.2;
 }
 
 .about-text {
     margin-bottom: 2rem;
-}
-
-.about-text p {
-    margin-bottom: 1.2rem;
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
     line-height: 1.8;
 }
 
 .about-list {
     list-style: none;
-    margin-top: 2rem;
+    margin: 2rem 0;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-list li {
     margin-bottom: 1rem;
     display: flex;
     align-items: flex-start;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .about-list i {
@@ -461,53 +461,20 @@ nav.scrolled {
     margin-top: 5px;
 }
 
-.about-image {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.about-image::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(15,76,117,0.3), rgba(255,140,0,0.3));
-    z-index: 1;
-}
-
-.about-image img {
-    width: 100%;
-    display: block;
-    transition: transform 1s ease;
-}
-
-.about-image:hover img {
-    transform: scale(1.05);
-}
-
-/* Services */
-.services {
-    background: var(--light-gray);
-    padding: 7rem 0;
-    position: relative;
-}
-
+/* Services Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     margin-top: 3rem;
 }
 
 .service-card {
-    background: white;
+    background: #2a2a2a;
     border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 2.5rem;
     transition: all 0.3s ease;
-    position: relative;
+    border: 1px solid #404040;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -515,54 +482,37 @@ nav.scrolled {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
 }
 
 .service-icon {
     font-size: 2.2rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 1.5rem;
-    transition: all 0.3s ease;
-    background: var(--primary-light);
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-.service-card:hover .service-icon {
-    transform: rotateY(360deg);
 }
 
 .service-card h3 {
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: white;
     font-size: 1.3rem;
-    position: relative;
 }
 
 .service-card p {
-    color: var(--text-color);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.95rem;
+    margin-bottom: 1.5rem;
     flex-grow: 1;
 }
 
 .service-card .btn {
-    margin-top: 1.5rem;
     align-self: flex-start;
 }
 
 /* Projects Section */
-.projects {
-    padding: 7rem 0;
-    background: white;
-}
-
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-top: 3rem;
 }
@@ -571,9 +521,10 @@ nav.scrolled {
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     height: 100%;
     aspect-ratio: 3/4;
+    background: #2a2a2a;
 }
 
 .project-image {
@@ -592,7 +543,7 @@ nav.scrolled {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     padding: 2rem;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -614,32 +565,28 @@ nav.scrolled {
 }
 
 /* Testimonials */
-.testimonials {
-    background: var(--light-gray);
-    padding: 7rem 0;
-}
-
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
 
 .testimonial-card {
-    background: white;
+    background: #2a2a2a;
     border-radius: 10px;
     padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid #404040;
 }
 
 .testimonial-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
 }
 
 .testimonial-rating {
@@ -654,13 +601,14 @@ nav.scrolled {
     font-size: 1rem;
     line-height: 1.8;
     flex-grow: 1;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 1rem;
-    border-top: 1px solid var(--medium-gray);
+    border-top: 1px solid #404040;
     padding-top: 1.5rem;
 }
 
@@ -668,31 +616,26 @@ nav.scrolled {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: var(--primary-light);
+    background-color: var(--accent-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-color);
+    color: white;
     font-weight: bold;
     font-size: 1.2rem;
 }
 
 .author-info h4 {
     margin-bottom: 0.2rem;
-    color: var(--primary-color);
+    color: white;
 }
 
 .author-info p {
-    color: #777;
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
 }
 
 /* FAQ Section */
-.faq {
-    padding: 7rem 0;
-    background: white;
-}
-
 .faq-container {
     max-width: 900px;
     margin: 3rem auto 0;
@@ -702,41 +645,40 @@ nav.scrolled {
     margin-bottom: 1.5rem;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    background: white;
+    background: #2a2a2a;
     transition: all 0.3s ease;
+    border: 1px solid #404040;
 }
 
 .faq-item:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
 }
 
 .faq-question {
     padding: 1.5rem;
-    background-color: white;
+    background-color: #2a2a2a;
     cursor: pointer;
     font-weight: 500;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--primary-color);
+    color: white;
     transition: all 0.3s ease;
 }
 
-.faq-question span {
-    flex: 1;
-    padding-right: 10px;
+.faq-question:hover {
+    background-color: #333333;
+}
+
+.faq-question.active {
+    background-color: var(--accent-color);
+    color: white;
 }
 
 .faq-question i {
     transition: transform 0.3s ease;
     color: var(--accent-color);
     font-size: 1.2rem;
-}
-
-.faq-question.active {
-    background-color: var(--primary-color);
-    color: white;
 }
 
 .faq-question.active i {
@@ -749,6 +691,7 @@ nav.scrolled {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease, padding 0.5s ease;
+    background: #333333;
 }
 
 .faq-answer.show {
@@ -760,141 +703,124 @@ nav.scrolled {
     margin-bottom: 1rem;
     font-size: 0.95rem;
     line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-.faq-answer p:last-child {
-    margin-bottom: 0;
-}
-
-/* CTA Section */
-.cta-section {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
-    padding: 7rem 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/api/placeholder/1920/1080');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
-    z-index: 0;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.cta-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.cta-text {
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-}
-
-.cta-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn-white {
-    background: white;
-    color: var(--primary-color);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-}
-
-.btn-white:hover {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
-}
-
-.btn-outline {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
-}
-
-/* Contact */
-.contact {
-    background: var(--light-gray);
-    padding: 7rem 0;
+/* Contact Form Section */
+.contact-form-section {
+    background: #1a1a1a;
+    padding: 8rem 0;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
     margin-top: 3rem;
 }
 
-.contact-info {
+.contact-form {
+    background: #2a2a2a;
+    padding: 3rem;
+    border-radius: 15px;
+    border: 1px solid #404040;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #404040;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #e67e00;
+    transform: translateY(-2px);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.contact-info-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: 1fr;
     gap: 2rem;
 }
 
 .contact-card {
-    background: white;
+    background: #2a2a2a;
     border-radius: 10px;
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    height: 100%;
+    border: 1px solid #404040;
 }
 
 .contact-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
 }
 
 .contact-icon {
     font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    background: var(--primary-light);
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
 }
 
 .contact-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: white;
 }
 
 .contact-card p, .contact-card a {
-    color: var(--text-color);
+    color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
     margin-bottom: 0.5rem;
     text-decoration: none;
@@ -905,26 +831,33 @@ nav.scrolled {
     color: var(--accent-color);
 }
 
-.map-container {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+/* Success/Error Messages */
+.success-message {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid #28a745;
+    color: #28a745;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: none;
 }
 
-.map-container iframe {
-    width: 100%;
-    height: 400px;
-    border: 0;
+.error-message {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    display: none;
 }
 
 /* Footer */
 footer {
-    background-color: var(--primary-color);
+    background-color: #1a1a1a;
     color: white;
-    padding: 5rem 0 1rem;
+    padding: 5rem 0 2rem;
+    border-top: 1px solid #404040;
 }
 
 .footer-content {
@@ -942,10 +875,6 @@ footer {
     display: inline-block;
 }
 
-.footer-logo span {
-    color: white;
-}
-
 .footer-logo span.accent {
     color: var(--accent-color);
 }
@@ -953,7 +882,7 @@ footer {
 .footer-about p {
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.7);
     max-width: 400px;
     line-height: 1.8;
 }
@@ -962,18 +891,6 @@ footer {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     color: white;
-    position: relative;
-    padding-bottom: 0.8rem;
-}
-
-.footer-section h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background: var(--accent-color);
 }
 
 .footer-links {
@@ -985,28 +902,21 @@ footer {
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    display: inline-block;
 }
 
 .footer-links a:hover {
     color: var(--accent-color);
-    transform: translateX(5px);
-}
-
-.footer-links a i {
-    margin-right: 8px;
-    font-size: 0.9rem;
 }
 
 .footer-contact p {
     display: flex;
     margin-bottom: 1rem;
     font-size: 0.95rem;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-contact i {
@@ -1021,7 +931,7 @@ footer {
 }
 
 .social-links a {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--accent-color);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1034,16 +944,16 @@ footer {
 }
 
 .social-links a:hover {
-    background: var(--accent-color);
+    background: #e67e00;
     transform: translateY(-5px);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #404040;
     font-size: 0.9rem;
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* Scroll Top Button */
@@ -1073,33 +983,11 @@ footer {
 }
 
 .scroll-top:hover {
-    background-color: var(--primary-color);
+    background-color: #e67e00;
     transform: translateY(-3px);
 }
 
 /* Animations */
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1108,18 +996,6 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
     }
 }
 
@@ -1135,13 +1011,13 @@ footer {
         right: -100%;
         width: 80%;
         height: 100vh;
-        background-color: white;
+        background-color: #1a1a1a;
         padding: 6rem 2rem 2rem;
         flex-direction: column;
         text-align: left;
         transition: all 0.5s ease;
         z-index: 999;
-        box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+        box-shadow: -5px 0 30px rgba(0,0,0,0.3);
     }
     
     .nav-links.active {
@@ -1149,32 +1025,35 @@ footer {
     }
     
     .nav-links a {
-        font-size: 1.1rem;
-        padding: 1rem 0.8rem;
-        border-bottom: 1px solid var(--medium-gray);
+        font-size: 1.2rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid #404040;
         width: 100%;
         display: block;
     }
-    
-    .hamburger.active {
-        color: var(--accent-color);
-    }
 
-    .hero-content {
+    .order-btn {
+        margin-left: 0;
+        margin-top: 1rem;
+        display: block;
         text-align: center;
-        padding: 3rem 0;
     }
 
     .hero-title {
         font-size: 2.5rem;
     }
 
-    .hero-description {
-        max-width: 100%;
+    .hero-subtitle {
+        font-size: 1.8rem;
     }
 
-    .hero-cta {
-        justify-content: center;
+    .section-title {
+        font-size: 2.2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .features-grid,
@@ -1184,12 +1063,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .cta-title {
-        font-size: 2rem;
+    .footer-content {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1202,10 +1077,6 @@ footer {
         grid-template-columns: 1fr 1fr;
     }
 
-    .hero-image {
-        display: block;
-    }
-
     .about-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1213,7 +1084,7 @@ footer {
 
 @media (min-width: 992px) {
     .hero-title {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
     }
 
     .features-grid {
@@ -1232,6 +1103,30 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
     </style>
 </head>
 <body>
@@ -1243,7 +1138,7 @@ footer {
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">Aqua<span class="accent"> Team</span></a>
+            <a href="#home" class="logo">Aqua<span class="accent"> Team</span></a>
             <button class="hamburger" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1253,7 +1148,7 @@ footer {
                 <a href="#services">Usługi</a>
                 <a href="#projects">Realizacje</a>
                 <a href="#testimonials">Opinie</a>
-                <a href="#contact">Kontakt</a>
+                <a href="#contact" class="order-btn">Skontaktuj się</a>
             </div>
         </div>
     </nav>
@@ -1262,20 +1157,20 @@ footer {
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-subtitle">Profesjonalne Usługi Wodno-Kanalizacyjne</span>
                 <h1 class="hero-title">Nowoczesne rozwiązania dla Twojego domu</h1>
+                <h2 class="hero-subtitle"></h2>
                 <p class="hero-description">Specjalizujemy się w kompleksowych usługach wodno-kanalizacyjnych na terenie Oleśnicy i okolic. Zapewniamy najwyższą jakość wykonania oraz pełną gwarancję na wszystkie prace.</p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary">Kontakt</a>
                     <a href="#services" class="btn btn-secondary">Nasze usługi</a>
                 </div>
+                
             </div>
-            <img src="/api/placeholder/600/500" alt="Usługi wodno-kanalizacyjne" class="hero-image">
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
+    <section id="features" class="content-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Dlaczego My?</span>
@@ -1309,14 +1204,16 @@ footer {
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="content-section light">
         <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Witamy w AQUA TEAM</span>
+                <h2 class="section-title">Specjaliści w dziedzinie instalacji wodno-kanalizacyjnych</h2>
+                <p class="section-description">Aqua Team to firma z wieloletnim doświadczeniem, która specjalizuje się w kompleksowych usługach wodno-kanalizacyjnych. Naszym głównym celem jest dostarczanie najwyższej jakości rozwiązań, które są zarówno funkcjonalne jak i trwałe.</p>
+            </div>
             <div class="about-grid">
                 <div class="about-content" data-aos="fade-right">
-                    <h3>Poznaj naszą firmę</h3>
-                    <h2>Specjaliści w dziedzinie instalacji wodno-kanalizacyjnych</h2>
                     <div class="about-text">
-                        <p>Aqua Team to firma z wieloletnim doświadczeniem, która specjalizuje się w kompleksowych usługach wodno-kanalizacyjnych. Naszym głównym celem jest dostarczanie najwyższej jakości rozwiązań, które są zarówno funkcjonalne jak i trwałe.</p>
                         <p>Działamy na terenie Oleśnicy i okolic, realizując projekty dla klientów indywidualnych oraz firm. Nasz zespół to wykwalifikowani specjaliści, którzy regulnie podnoszą swoje kwalifikacje, aby móc oferować najlepsze rozwiązania zgodne z aktualnymi standardami.</p>
                     </div>
                     <ul class="about-list">
@@ -1337,16 +1234,14 @@ footer {
                             <span>Współpraca z renomowanymi producentami</span>
                         </li>
                     </ul>
-                </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="/api/placeholder/600/800" alt="Zespół Aqua Team">
+                    <a href="#contact" class="btn btn-primary">Skontaktuj się</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+    <section id="services" class="content-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Co Oferujemy</span>
@@ -1407,7 +1302,7 @@ footer {
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects section">
+    <section id="projects" class="content-section light">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Nasze Prace</span>
@@ -1462,7 +1357,7 @@ footer {
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
+    <section id="testimonials" class="content-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Opinie Klientów</span>
@@ -1479,12 +1374,12 @@ footer {
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Z całego serca polecam firmę Aqua Team! Profesjonalne podejście do klienta, demontaż starego pieca, montaż pompy ciepła, wszelkie doradztwo na najwyższym poziomie. Świetny kontakt zarówno przed inwestycją, w trakcie, jak i po, w razie pytań - bardzo pomocni."
+                        "Profesjonalna i szybka realizacja kompleksowej instalacji wodno-kanalizacyjnej w naszym domu. Pełne zaangażowanie i wysokie kwalifikacje zespołu. Polecam Aqua Team wszystkim."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">J</div>
                         <div class="author-info">
-                            <h4>Dorota Sygulska</h4>
+                            <h4>Jan Kowalski</h4>
                             <p>Oleśnica</p>
                         </div>
                     </div>
@@ -1498,13 +1393,13 @@ footer {
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Polecam tylko wyjątkowe firmy, dlatego jeżeli dla kogoś liczy się profesjonalne wykonanie, precyzja, porządek i spokój, bez patrzenia ekipie na ręce, to doskonale trafił. Pan Sylwek i Panowie z Aqua Team odczarowali moją walkę z budową."
+                        "Szybka reakcja na awarię w niedzielę wieczorem. Ekipa Aqua Team była na miejscu w godzinę i sprawnie usunęła problem. Ceny bardzo uczciwe, usługa na najwyższym poziomie."
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">A</div>
                         <div class="author-info">
-                            <h4>Aneta Ukleja</h4>
-                            <p>Oleśnica</p>
+                            <h4>Anna Wiśniewska</h4>
+                            <p>Bierutów</p>
                         </div>
                     </div>
                 </div>
@@ -1517,15 +1412,13 @@ footer {
                         <i class="fas fa-star"></i>
                     </div>
                     <p class="testimonial-text">
-                        "Bardzo polecam! Pan sylwester i jego ekipa robili u mnie ogrzewanie podłogowe i instalacje wodna.
-Wszystko wykonane z dbałością o detale.
-Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
+                        "Solidne wykonanie modernizacji łazienki. Wszystko zrobione terminowo, czysto i precyzyjnie. Dodatkowe prace nie generowały dodatkowych kosztów. Zdecydowanie polecam!"
                     </p>
                     <div class="testimonial-author">
                         <div class="author-avatar">P</div>
                         <div class="author-info">
-                            <h4>Patrycja Koźlik</h4>
-                            <p>Oleśnica</p>
+                            <h4>Piotr Nowak</h4>
+                            <p>Syców</p>
                         </div>
                     </div>
                 </div>
@@ -1534,7 +1427,7 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="faq section">
+    <section id="faq" class="content-section light">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Pytania i Odpowiedzi</span>
@@ -1586,22 +1479,8 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Potrzebujesz fachowca?</h2>
-                <p class="cta-text">Skontaktuj się z nami już dziś, aby umówić się na bezpłatną wycenę. Nasi specjaliści są gotowi rozwiązać każdy Twój problem z instalacją wodno-kanalizacyjną.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-white">Skontaktuj się</a>
-                    <a href="#services" class="btn btn-outline">Nasze usługi</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
+    <!-- Contact Form Section -->
+    <section id="contact" class="contact-form-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Zostańmy w kontakcie</span>
@@ -1609,7 +1488,50 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
                 <p class="section-description">Jesteśmy dostępni, aby odpowiedzieć na wszystkie Twoje pytania i zapewnić profesjonalną pomoc.</p>
             </div>
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-form">
+                    <div class="success-message" id="success-message">
+                        Dziękujemy za wiadomość! Skontaktujemy się z Tobą w ciągu 24 godzin.
+                    </div>
+                    <div class="error-message" id="error-message">
+                        Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie lub skontaktuj się telefonicznie.
+                    </div>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Imię i nazwisko *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Rodzaj usługi</label>
+                            <select id="service" name="service">
+                                <option value="">Wybierz usługę</option>
+                                <option value="instalacje">Instalacje wodno-kanalizacyjne</option>
+                                <option value="naprawy">Naprawy i awarie</option>
+                                <option value="przylacza">Przyłącza wodociągowe</option>
+                                <option value="modernizacje">Modernizacje</option>
+                                <option value="wykrywanie">Wykrywanie nieszczelności</option>
+                                <option value="montaz">Montaż sanitariatów</option>
+                                <option value="inne">Inne</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Wiadomość *</label>
+                            <textarea id="message" name="message" placeholder="Opisz szczegółowo swoją potrzebę..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            Wyślij wiadomość
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info-cards">
                     <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
@@ -1625,6 +1547,7 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
                         </div>
                         <h3>Telefon</h3>
                         <a href="tel:+48661494944">+48 661 494 944</a>
+                        <p>Dostępni 24/7 w przypadku awarii</p>
                     </div>
                     <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="contact-icon">
@@ -1632,6 +1555,7 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
                         </div>
                         <h3>Email</h3>
                         <a href="mailto:aqua-team@o2.pl">aqua-team@o2.pl</a>
+                        <p>Odpowiadamy w ciągu 24h</p>
                     </div>
                     <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
                         <div class="contact-icon">
@@ -1642,9 +1566,6 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
                         <p>Sobota: 9:00 - 17:00</p>
                         <p>Niedziela: Na wezwanie</p>
                     </div>
-                </div>
-                <div class="map-container" data-aos="fade-up">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2507.156918902917!2d17.38109977636355!3d51.20905557164173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fc8d80bd66259%3A0xaec6bc3e1cdff0e!2sWroc%C5%82awska%2023j%2C%2056-400%20Ole%C5%9Bnica!5e0!3m2!1spl!2spl!4v1682342000825!5m2!1spl!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -1666,30 +1587,32 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
                 <div class="footer-section">
                     <h4>Usługi</h4>
                     <ul class="footer-links">
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Instalacje wodno-kanalizacyjne</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Naprawy i awarie</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Przyłącza wodociągowe</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Modernizacje</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Wykrywanie nieszczelności</a></li>
-                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Montaż sanitariatów</a></li>
+                        <li><a href="#services">Instalacje wodno-kanalizacyjne</a></li>
+                        <li><a href="#services">Naprawy i awarie</a></li>
+                        <li><a href="#services">Przyłącza wodociągowe</a></li>
+                        <li><a href="#services">Modernizacje</a></li>
+                        <li><a href="#services">Wykrywanie nieszczelności</a></li>
+                        <li><a href="#services">Montaż sanitariatów</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Szybki dostęp</h4>
                     <ul class="footer-links">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Start</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> O nas</a></li>
-                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Realizacje</a></li>
-                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Opinie</a></li>
-                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Kontakt</a></li>
+                        <li><a href="#home">Start</a></li>
+                        <li><a href="#about">O nas</a></li>
+                        <li><a href="#projects">Realizacje</a></li>
+                        <li><a href="#testimonials">Opinie</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Kontakt</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> ul. Wrocławska 23j lok. 33, 56-400 Oleśnica</p>
-                    <p><i class="fas fa-phone-alt"></i> +48 661 494 944</p>
-                    <p><i class="fas fa-envelope"></i> aqua-team@o2.pl</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> ul. Wrocławska 23j lok. 33, 56-400 Oleśnica</p>
+                        <p><i class="fas fa-phone-alt"></i> +48 661 494 944</p>
+                        <p><i class="fas fa-envelope"></i> aqua-team@o2.pl</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1703,7 +1626,6 @@ Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"
     
     <!-- Main JavaScript -->
     <script>
-            
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS (Animate on Scroll)
@@ -1795,42 +1717,49 @@ document.addEventListener('DOMContentLoaded', function() {
             answer.classList.toggle('show');
         });
     });
-    
-    // Helper function to check if element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-            rect.bottom >= 0
-        );
-    }
 
-    // Add scroll event for animations
-    window.addEventListener('scroll', function() {
-        // Add more custom scroll-based animations here if needed
-    });
+    // Contact Form Handling
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const successMessage = document.getElementById('success-message');
+    const errorMessage = document.getElementById('error-message');
 
-    // Add smooth hover effect for service cards
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transition = 'all 0.3s ease';
-        });
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transition = 'all 0.5s ease';
-        });
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wysyłanie...';
+        
+        // Hide previous messages
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone'),
+            service: formData.get('service'),
+            message: formData.get('message')
+        };
+        
+        // Simulate form submission (replace with actual endpoint)
+        setTimeout(() => {
+            // For demo purposes, we'll show success
+            // In production, replace this with actual form submission logic
+            successMessage.style.display = 'block';
+            contactForm.reset();
+            
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Wyślij wiadomość';
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 2000);
     });
-
-    // Add parallax effect to CTA section
-    const ctaSection = document.querySelector('.cta-section');
-    if (ctaSection) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            const offset = scrollPosition * 0.4;
-            ctaSection.style.backgroundPosition = `center ${offset}px`;
-        });
-    }
 });
     </script>
 </body>
