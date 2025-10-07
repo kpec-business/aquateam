@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -179,6 +180,101 @@
             transition: all 0.3s ease;
             border-radius: 3px;
         }
+
+        /* Logo enhancements */
+.logo-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 900px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.logo-watermark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.services {
+    position: relative;
+    overflow: hidden;
+}
+
+.services .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Enhanced logo in header */
+.logo-icon-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent;
+}
+
+.logo-icon-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* Responsive watermark */
+@media (max-width: 1024px) {
+    .logo-watermark {
+        width: 750px;
+        height: 750px;
+        opacity: 0.08;
+    }
+
+      
+    .logo-icon-image {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-watermark {
+        width: 600px;
+        height: 600px;
+        opacity: 0.09;
+    }
+    
+    .logo-icon-image {
+        width: 55px;
+        height: 55px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-watermark {
+        width: 450px;
+        height: 450px;
+        opacity: 0.1;
+    }
+    
+    .logo-icon-image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
 .hero {
     min-height: 100vh;
     display: flex;
@@ -1044,6 +1140,29 @@
             font-size: 0.9rem;
         }
 
+        /* Large logo in footer */
+.footer-logo-large {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .footer-logo-large {
+        width: 200px;
+        height: 200px;
+    }
+}
+
         /* Scroll to top */
         .scroll-top {
             position: fixed;
@@ -1301,7 +1420,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">
+           <a href="#home" class="logo">
     <div class="logo-text">
         Aqua<span class="orange"> Team</span>
     </div>
@@ -1412,6 +1531,11 @@
 
     <!-- Services Section -->
   <section id="services" class="services">
+    <!-- Logo Watermark -->
+    <div class="logo-watermark">
+        <img src="aquaTeamLogo.png" alt="Aqua Team">
+    </div>
+    
     <div class="container">
         <div class="section-header">
             <div class="section-badge">Oferta</div>
@@ -1419,7 +1543,7 @@
             <p class="section-description">Oferujemy kompleksowe rozwiązania wodno-kanalizacyjne oraz systemy klimatyzacji, ogrzewania i wentylacji, dopasowane do indywidualnych potrzeb naszych klientów.</p>
         </div>
         <div class="services-grid">
-             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-icon">
                     <i class="fas fa-snowflake"></i>
                 </div>
@@ -1427,7 +1551,7 @@
                 <p class="service-text">Montaż, serwis i konserwacja systemów klimatyzacji. Dobór optymalnych rozwiązań zapewniających komfort termiczny w każdych warunkach.</p>
                 <a href="#contact" class="btn btn-outline">Dowiedz się więcej</a>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="service-icon">
                     <i class="fas fa-wind"></i>
                 </div>
@@ -1435,7 +1559,7 @@
                 <p class="service-text">Projektowanie i montaż systemów wentylacji mechanicznej i rekuperacji. Zapewnienie świeżego powietrza i optymalnej cyrkulacji.</p>
                 <a href="#contact" class="btn btn-outline">Dowiedz się więcej</a>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="service-icon">
                     <i class="fas fa-fire"></i>
                 </div>
@@ -1444,7 +1568,7 @@
                 <a href="#contact" class="btn btn-outline">Dowiedz się więcej</a>
             </div>
 
-                        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="service-icon">
                     <i class="fas fa-faucet"></i>
                 </div>
@@ -1453,7 +1577,7 @@
                 <a href="#contact" class="btn btn-outline">Dowiedz się więcej</a>
             </div>
 
-            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="700">
                 <div class="service-icon">
                     <i class="fas fa-tools"></i>
                 </div>
@@ -1461,7 +1585,7 @@
                 <p class="service-text">Szybki serwis i usuwanie awarii instalacji wodno-kanalizacyjnych. Dostępni 24/7 w przypadku pilnych interwencji.</p>
                 <a href="#contact" class="btn btn-outline">Dowiedz się więcej</a>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="800">
                 <div class="service-icon">
                     <i class="fas fa-cogs"></i>
                 </div>
@@ -1720,17 +1844,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <div class="logo-text">
-                            Aqua<span class="orange"> Team</span>
-                        </div>
-                    </a>
-                    <p>Specjalizujemy się w kompleksowych usługach wodno-kanalizacyjnych. Działamy na terenie Oleśnicy i okolic, zapewniając najwyższą jakość wykonania i pełną satysfakcję klientów.</p>
-                </div>
+               <div class="footer-about">
+    <div class="footer-logo-large">
+        <img src="aquaTeamLogo.png" alt="Aqua Team Logo">
+    </div>
+    <p>Specjalizujemy się w kompleksowych usługach wodno-kanalizacyjnych. Działamy na terenie Oleśnicy i okolic, zapewniając najwyższą jakość wykonania i pełną satysfakcję klientów.</p>
+</div>
                 <div class="footer-section">
                     <h4>Usługi</h4>
                     <ul class="footer-links">
@@ -2354,6 +2473,3 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-
-
-
