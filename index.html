@@ -300,7 +300,7 @@
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    transition: opacity 1s ease-in-out, visibility 1.8s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,6 +312,7 @@
     z-index: 2;
 }
 
+/* Updated hero slide background with logo */
 .hero-slide-bg {
     position: absolute;
     top: 0;
@@ -319,6 +320,66 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-slide-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-slide-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('aquaTeamLogo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Blue gradient overlay for all slides */
+.hero-slide[data-slide="0"] .hero-slide-bg::before,
+.hero-slide[data-slide="1"] .hero-slide-bg::before,
+.hero-slide[data-slide="2"] .hero-slide-bg::before,
+.hero-slide[data-slide="3"] .hero-slide-bg::before,
+.hero-slide[data-slide="4"] .hero-slide-bg::before {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.92) 0%, rgba(51, 65, 85, 0.88) 100%);
+}
+
+@media (max-width: 1024px) {
+    .hero-slide-bg::after {
+        background-size: cover;
+        opacity: 0.05
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slide-bg::after {
+        background-size: cover;
+        opacity: 0.05
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slide-bg::after {
+        background-size: cover;
+        opacity: 0.05;
+    }
 }
 
 .hero-slide-content {
@@ -1443,91 +1504,73 @@
         </div>
     </nav>
 
-          <!-- Hero Section with Slideshow -->
-    <section id="home" class="hero">
-        <div class="hero-slideshow">
-            <div class="hero-slide active" data-slide="0">
-                <div class="hero-slide-bg" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(59, 130, 246, 0.75) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%231E3A8A%22 width=%221200%22 height=%22800%22/><path fill=%22%233B82F6%22 opacity=%220.3%22 d=%22M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z%22/></svg>') center/cover;"></div>
-                <div class="hero-slide-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-award"></i>
-                        Profesjonalnie od 2015 roku
-                    </div>
-                    <h1 class="hero-title">Instalacje Wodno-Kanalizacyjne</h1>
-                    <p class="hero-subtitle">Kompleksowe wykonanie instalacji w budynkach mieszkalnych i użytkowych z zachowaniem najwyższych standardów.</p>
-                    
-                </div>
-            </div>
+        <!-- Hero Section with Slideshow -->
+<section id="home" class="hero">
+    <div class="hero-slideshow">
 
-            <div class="hero-slide" data-slide="1">
-                <div class="hero-slide-bg" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.85) 0%, rgba(255, 140, 66, 0.75) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%23FF6B35%22 width=%221200%22 height=%22800%22/><circle fill=%22%23FF8C42%22 opacity=%220.2%22 cx=%22600%22 cy=%22400%22 r=%22300%22/></svg>') center/cover;"></div>
-                <div class="hero-slide-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-clock"></i>
-                        Dostępni 24/7
-                    </div>
-                    <h1 class="hero-title">Naprawy i Awarie</h1>
-                    <p class="hero-subtitle">Szybki serwis i usuwanie awarii hydraulicznych. Interwencja w ciągu godziny na terenie Oleśnicy.</p>
-                    
+        <!-- Slide 1: Klimatyzacje -->
+        <div class="hero-slide active" data-slide="0">
+            <div class="hero-slide-bg"></div>
+            <div class="hero-slide-content">
+                <div class="hero-badge">
+                    <i class="fas fa-snowflake"></i>
+                    Komfort przez cały rok
                 </div>
-            </div>
-
-            <div class="hero-slide" data-slide="2">
-                <div class="hero-slide-bg" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(59, 130, 246, 0.75) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%231E3A8A%22 width=%221200%22 height=%22800%22/><rect fill=%22%233B82F6%22 opacity=%220.3%22 x=%22100%22 y=%22100%22 width=%22400%22 height=%22600%22 rx=%2220%22/></svg>') center/cover;"></div>
-                <div class="hero-slide-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-home"></i>
-                        Solidne fundamenty
-                    </div>
-                    <h1 class="hero-title">Przyłącza Wodociągowe</h1>
-                    <p class="hero-subtitle">Wykonanie przyłączy wodociągowych i kanalizacyjnych zgodnie z wszystkimi przepisami i normami.</p>
-                    
-                </div>
-            </div>
-
-            <div class="hero-slide" data-slide="3">
-                <div class="hero-slide-bg" style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.85) 0%, rgba(255, 140, 66, 0.75) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%23FF6B35%22 width=%221200%22 height=%22800%22/><path fill=%22%23FF8C42%22 opacity=%220.3%22 d=%22M200,200 L400,200 L400,400 L600,400 L600,600 L200,600 Z%22/></svg>') center/cover;"></div>
-                <div class="hero-slide-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-sync-alt"></i>
-                        Nowoczesne technologie
-                    </div>
-                    <h1 class="hero-title">Modernizacje</h1>
-                    <p class="hero-subtitle">Modernizacja starych instalacji na nowoczesne, energooszczędne rozwiązania.</p>
-                    
-                </div>
-            </div>
-
-            <div class="hero-slide" data-slide="4">
-                <div class="hero-slide-bg" style="background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(59, 130, 246, 0.75) 100%), url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect fill=%22%231E3A8A%22 width=%221200%22 height=%22800%22/><ellipse fill=%22%233B82F6%22 opacity=%220.2%22 cx=%22600%22 cy=%22400%22 rx=%22400%22 ry=%22250%22/></svg>') center/cover;"></div>
-                <div class="hero-slide-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-bath"></i>
-                        Kompleksowe wykończenie
-                    </div>
-                    <h1 class="hero-title">Montaż Sanitariatów</h1>
-                    <p class="hero-subtitle">Profesjonalny montaż urządzeń sanitarnych - wannen, pryszniców, umywalek i muszli WC.</p>
-                
-                </div>
+                <h1 class="hero-title">Klimatyzacje</h1>
+                <p class="hero-subtitle">
+                    Montaż i serwis klimatyzacji dla domów i firm. Efektywność, oszczędność i świeże powietrze każdego dnia.
+                </p>
             </div>
         </div>
 
-        <div class="hero-nav">
-            <button class="hero-nav-btn prev" aria-label="Poprzedni slajd">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="hero-dots">
-                <button class="hero-dot active" data-slide="0" aria-label="Slajd 1"></button>
-                <button class="hero-dot" data-slide="1" aria-label="Slajd 2"></button>
-                <button class="hero-dot" data-slide="2" aria-label="Slajd 3"></button>
-                <button class="hero-dot" data-slide="3" aria-label="Slajd 4"></button>
-                <button class="hero-dot" data-slide="4" aria-label="Slajd 5"></button>
+        <!-- Slide 2: Ogrzewanie -->
+        <div class="hero-slide" data-slide="1">
+            <div class="hero-slide-bg"></div>
+            <div class="hero-slide-content">
+                <div class="hero-badge">
+                    <i class="fas fa-fire"></i>
+                    Ciepło i oszczędność
+                </div>
+                <h1 class="hero-title">Ogrzewanie</h1>
+                <p class="hero-subtitle">
+                    Instalacje grzewcze, podłogówki i pompy ciepła. Komfort cieplny i niższe rachunki w jednym systemie.
+                </p>
             </div>
-            <button class="hero-nav-btn next" aria-label="Następny slajd">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
-    </section>
+
+        <!-- Slide 3: Wentylacje -->
+        <div class="hero-slide" data-slide="2">
+            <div class="hero-slide-bg"></div>
+            <div class="hero-slide-content">
+                <div class="hero-badge">
+                    <i class="fas fa-wind"></i>
+                    Czyste powietrze w każdym pomieszczeniu
+                </div>
+                <h1 class="hero-title">Wentylacje</h1>
+                <p class="hero-subtitle">
+                    Wydajne systemy wentylacji i rekuperacji. Komfort oddychania i zdrowy mikroklimat we wnętrzach.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <div class="hero-nav">
+        <button class="hero-nav-btn prev" aria-label="Poprzedni slajd">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="hero-dots">
+            <button class="hero-dot active" data-slide="0" aria-label="Slajd 1"></button>
+            <button class="hero-dot" data-slide="1" aria-label="Slajd 2"></button>
+            <button class="hero-dot" data-slide="2" aria-label="Slajd 3"></button>
+        </div>
+        <button class="hero-nav-btn next" aria-label="Następny slajd">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
 
     <!-- Services Section -->
   <section id="services" class="services">
@@ -1649,12 +1692,11 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Profesjonalna i szybka realizacja kompleksowej instalacji wodno-kanalizacyjnej w naszym domu. Pełne zaangażowanie i wysokie kwalifikacje zespołu. Polecam Aqua Team wszystkim."</p>
+                    <p class="testimonial-text">"Polecam tylko wyjątkowe firmy, dlatego jeżeli dla kogoś liczy się profesjonalne wykonanie, precyzja, porządek i spokój, bez patrzenia ekipie na ręce, to doskonale trafił. Pan Sylwek i Panowie z Aqua Team odczarowali moją walkę z budową."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">J</div>
+                        <div class="author-avatar">A</div>
                         <div class="author-info">
-                            <h4>Jan Kowalski</h4>
-                            <p>Oleśnica</p>
+                            <h4>Aneta Ukleja</h4>
                         </div>
                     </div>
                 </div>
@@ -1666,12 +1708,11 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Szybka reakcja na awarię w niedzielę wieczorem. Ekipa Aqua Team była na miejscu w godzinę i sprawnie usunęła problem. Ceny bardzo uczciwe, usługa na najwyższym poziomie."</p>
+                    <p class="testimonial-text">"Z całego serca polecam firmę Aqua Team! Profesjonalne podejście do klienta, demontaż starego pieca, montaż pompy ciepła, wszelkie doradztwo na najwyższym poziomie. Świetny kontakt zarówno przed inwestycją, w trakcie, jak i po, w razie pytań - bardzo pomocni."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">A</div>
+                        <div class="author-avatar">D</div>
                         <div class="author-info">
-                            <h4>Anna Wiśniewska</h4>
-                            <p>Bierutów</p>
+                            <h4>Dorota Sygulska</h4>
                         </div>
                     </div>
                 </div>
@@ -1683,12 +1724,11 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Solidne wykonanie modernizacji łazienki. Wszystko zrobione terminowo, czysto i precyzyjnie. Dodatkowe prace nie generowały dodatkowych kosztów. Zdecydowanie polecam!"</p>
+                    <p class="testimonial-text">"Bardzo polecam! Pan sylwester i jego ekipa robili u mnie ogrzewanie podłogowe i instalacje wodna. Wszystko wykonane z dbałością o detale. Po sobie zostawili porządek o świetnie wykonana usługę. Polecam!"</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">P</div>
+                        <div class="author-avatar">D</div>
                         <div class="author-info">
-                            <h4>Piotr Nowak</h4>
-                            <p>Syców</p>
+                            <h4>Patrycja Koźlik</h4>
                         </div>
                     </div>
                 </div>
@@ -1705,16 +1745,6 @@
                 <p class="section-description">Znajdź odpowiedzi na najczęściej zadawane pytania dotyczące naszych usług i sposobu współpracy.</p>
             </div>
             <div class="faq-container">
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="faq-question">
-                        <span>Czy oferujecie usługi interwencyjne w weekendy?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Tak, oferujemy usługi interwencyjne 24/7, również w weekendy i święta. W przypadku awarii hydraulicznej możesz liczyć na naszą szybką reakcję.</p>
-                        <p>Staramy się dotrzeć na miejsce w ciągu 1-2 godzin od zgłoszenia, niezależnie od pory dnia czy nocy.</p>
-                    </div>
-                </div>
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="faq-question">
                         <span>Jaką gwarancję udzielacie na wykonane prace?</span>
@@ -2472,5 +2502,3 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-
-
